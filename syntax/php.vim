@@ -2915,7 +2915,7 @@ if !exists("php_ignore_phpdoc")
     syntax region phpCommentTitle contained matchgroup=phpDocComment start="/\*\*" matchgroup=phpCommmentTitle keepend end="\.[ \t\r<&]"me=e-1 end="[^{]@"me=s-2,he=s-1 end="\*/"me=s-1,he=s-1 contains=phpCommentStar,phpTodo,phpDocTags containedin=phpComment
 
     syntax region phpDocTags  start="{@\(example\|id\|internal\|inheritdoc\|link\|source\|toc\|tutorial\)" end="}" containedin=phpComment
-    syntax match  phpDocTags  /@\(abstract\|author\|copyright\|deprecated\|example\|final\|ignore\|internal\|license\|link\|see\|static\|since\|throws\|todo\|tutorial\|uses\)\s*.*$/ contains=phpDocParamDesc containedin=phpComment 
+    syntax match  phpDocTags  /@\(abstract\|author\|copyright\|deprecated\|example\|final\|ignore\|internal\|license\|link\|see\|static\|since\|throws\|todo\|tutorial\|uses\)\s*.*$/ contains=phpDocParamDesc containedin=phpComment
     syntax match  phpDocTags  "@\(global\|method\|name\|param\|property\|staticvar\).\+$" contains=phpOperator,phpDocParamVarDesc,phpType containedin=phpComment
     syntax match  phpDocTags  "@\(package\|category\|subpackage\|version\).\+$" contains=phpDocParamDesc containedin=phpComment
 
@@ -2941,7 +2941,7 @@ if version >= 508 || !exists("did_phpdoc_syn_inits")
         command! -nargs=+ PhpHiLink hi def link <args>
     endif
 
-    PhpHiLink phpCommentTitle SpecialComment
+    PhpHiLink phpCommentTitle Comment
     PhpHiLink phpDocComment   Comment
     PhpHiLink phpDocTags      PreProc
     PhpHiLink phpDocParam     Function
@@ -3767,7 +3767,7 @@ if s:show_pcre
       HiLink pregClassExcEscapeKnown Type
       HiLink pregClassExcEscapeRange pregClassExcRange
       HiLink pregClassEscapeUnknown pregAmbiguous
-      
+
       HiLink phpFirePHP Error
 
       delcommand HiLink
